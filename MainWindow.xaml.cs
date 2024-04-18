@@ -19,6 +19,38 @@ namespace Prog_122_L5_Notes_Week3
         public MainWindow()
         {
             InitializeComponent();
+
+            //Creates and instance of an amazon order
+            AmazonOrder order1 = new AmazonOrder("12345", "Charles Milender", .1m);
+
+            //add 3 products
+            //listName.Add(Prodcut)
+            order1.Products.Add(new Product("Eternal Sunshine of a Spotless Mind", "Mechele Gondry", 10, 14.00m));
+            order1.Products.Add(new Product("El Dordado", "Howard Hawks", 10, 17.00m));
+            order1.Products.Add(new Product("Robcop", "Paul Verrhoven", 10, 13.00m));
+            rtbDisplay.Text = "";
+            foreach (Product product in order1.Products)
+            {
+                rtbDisplay.Text += $"Title: {product.Title}" +
+                    $"\nDirector: {product.Director}\n\n";
+            }
+
+            //display the final price with a single method call
+
+            MessageBox.Show(order1.TotalPrice().ToString("c"));
+        }
+        public void ProdcutExaple()
+        {
+            Product charlesMovie = new Product("El Darado", "Howard Hawks");
+            charlesMovie.Title = "Mallrats";
+            try
+            {
+                charlesMovie.Price = -5;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
