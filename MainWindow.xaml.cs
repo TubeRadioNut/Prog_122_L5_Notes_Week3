@@ -31,7 +31,33 @@ namespace Prog_122_L5_Notes_Week3
             rtbDisplay.Text = "";
             foreach (Product product in order1.Products)
             {
-                rtbDisplay.Text += $"Title: {product.Title}" +
+                rtbDisplay.Text += $"ID Number: {product.UId}\n" + $"Title: {product.Title}" +
+                    $"\nDirector: {product.Director}\n\n";
+            }
+            for(int i = 0; order1.Products.Count > i; i++)
+            {
+                
+                Product product = order1.Products[i];
+                if(product.Title.Contains("El Dordado"))
+                {
+                    order1.Products.Remove(product);
+                }
+            }
+            foreach (Product product in order1.Products)
+            {
+                rtbDisplay.Text += $"ID Number: {product.UId}\n" + $"Title: {product.Title}" +
+                    $"\nDirector: {product.Director}\n\n";
+            }
+            for(int i = 0; order1.Products.Count > i; i++)
+            {
+                if (order1.Products[i].Title.Contains("Robcop"))
+                {
+                    order1.Products.Remove(order1.Products[i]);
+                }
+            }
+            foreach (Product product in order1.Products)
+            {
+                rtbDisplay.Text += $"ID Number: {product.UId}\n" + $"Title: {product.Title}" +
                     $"\nDirector: {product.Director}\n\n";
             }
 
